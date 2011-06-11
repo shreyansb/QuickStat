@@ -11,11 +11,10 @@
 		E6E7115813A41224000D647C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E7115713A41224000D647C /* Foundation.framework */; };
 		E6E7115A13A41224000D647C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E7115913A41224000D647C /* CoreGraphics.framework */; };
 		E6E7115C13A41224000D647C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E7115B13A41224000D647C /* CoreData.framework */; };
-		E6E7116213A41224000D647C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E6E7116013A41224000D647C /* InfoPlist.strings */; };
-		E6E7116513A41224000D647C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E7116413A41224000D647C /* main.m */; };
-		E6E7116813A41224000D647C /* QuickStatAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E7116713A41224000D647C /* QuickStatAppDelegate.m */; };
-		E6E7116B13A41224000D647C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6E7116913A41224000D647C /* MainWindow.xib */; };
-		E6E7116E13A41224000D647C /* QuickStat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6E7116C13A41224000D647C /* QuickStat.xcdatamodeld */; };
+		E6EC03AA13A4147E00F504C0 /* QuickStat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6EC03A613A4147E00F504C0 /* QuickStat.xcdatamodeld */; };
+		E6EC03AB13A4147E00F504C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EC03A913A4147E00F504C0 /* AppDelegate.m */; };
+		E6EC03B013A4148800F504C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EC03AD13A4148800F504C0 /* main.m */; };
+		E6EC03BE13A41EC100F504C0 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EC03BD13A41EC100F504C0 /* StatsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,14 +23,14 @@
 		E6E7115713A41224000D647C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E6E7115913A41224000D647C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		E6E7115B13A41224000D647C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		E6E7115F13A41224000D647C /* QuickStat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuickStat-Info.plist"; sourceTree = "<group>"; };
-		E6E7116113A41224000D647C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E6E7116313A41224000D647C /* QuickStat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickStat-Prefix.pch"; sourceTree = "<group>"; };
-		E6E7116413A41224000D647C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E6E7116613A41224000D647C /* QuickStatAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickStatAppDelegate.h; sourceTree = "<group>"; };
-		E6E7116713A41224000D647C /* QuickStatAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickStatAppDelegate.m; sourceTree = "<group>"; };
-		E6E7116A13A41224000D647C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		E6E7116D13A41224000D647C /* QuickStat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuickStat.xcdatamodel; sourceTree = "<group>"; };
+		E6EC03A713A4147E00F504C0 /* QuickStat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuickStat.xcdatamodel; sourceTree = "<group>"; };
+		E6EC03A813A4147E00F504C0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E6EC03A913A4147E00F504C0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E6EC03AD13A4148800F504C0 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E6EC03AE13A4148800F504C0 /* QuickStat-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QuickStat-Info.plist"; sourceTree = "<group>"; };
+		E6EC03AF13A4148800F504C0 /* QuickStat-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuickStat-Prefix.pch"; sourceTree = "<group>"; };
+		E6EC03BC13A41EC100F504C0 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
+		E6EC03BD13A41EC100F504C0 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +51,8 @@
 		E6E7114613A41224000D647C = {
 			isa = PBXGroup;
 			children = (
-				E6E7115D13A41224000D647C /* QuickStat */,
+				E6EC03A413A4147E00F504C0 /* Application */,
+				E6EC03AC13A4148800F504C0 /* Supporting Files */,
 				E6E7115413A41224000D647C /* Frameworks */,
 				E6E7115213A41224000D647C /* Products */,
 			);
@@ -77,27 +77,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E6E7115D13A41224000D647C /* QuickStat */ = {
+		E6EC03A413A4147E00F504C0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				E6E7116613A41224000D647C /* QuickStatAppDelegate.h */,
-				E6E7116713A41224000D647C /* QuickStatAppDelegate.m */,
-				E6E7116913A41224000D647C /* MainWindow.xib */,
-				E6E7116C13A41224000D647C /* QuickStat.xcdatamodeld */,
-				E6E7115E13A41224000D647C /* Supporting Files */,
+				E6EC03A813A4147E00F504C0 /* AppDelegate.h */,
+				E6EC03A913A4147E00F504C0 /* AppDelegate.m */,
+				E6EC03BB13A41EC100F504C0 /* Controllers */,
+				E6EC03A513A4147E00F504C0 /* Models */,
 			);
-			path = QuickStat;
+			path = Application;
 			sourceTree = "<group>";
 		};
-		E6E7115E13A41224000D647C /* Supporting Files */ = {
+		E6EC03A513A4147E00F504C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E6E7115F13A41224000D647C /* QuickStat-Info.plist */,
-				E6E7116013A41224000D647C /* InfoPlist.strings */,
-				E6E7116313A41224000D647C /* QuickStat-Prefix.pch */,
-				E6E7116413A41224000D647C /* main.m */,
+				E6EC03A613A4147E00F504C0 /* QuickStat.xcdatamodeld */,
 			);
-			name = "Supporting Files";
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E6EC03AC13A4148800F504C0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E6EC03AD13A4148800F504C0 /* main.m */,
+				E6EC03AE13A4148800F504C0 /* QuickStat-Info.plist */,
+				E6EC03AF13A4148800F504C0 /* QuickStat-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E6EC03BB13A41EC100F504C0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E6EC03BC13A41EC100F504C0 /* StatsViewController.h */,
+				E6EC03BD13A41EC100F504C0 /* StatsViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,8 +165,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E7116213A41224000D647C /* InfoPlist.strings in Resources */,
-				E6E7116B13A41224000D647C /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,32 +175,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6E7116513A41224000D647C /* main.m in Sources */,
-				E6E7116813A41224000D647C /* QuickStatAppDelegate.m in Sources */,
-				E6E7116E13A41224000D647C /* QuickStat.xcdatamodeld in Sources */,
+				E6EC03AA13A4147E00F504C0 /* QuickStat.xcdatamodeld in Sources */,
+				E6EC03AB13A4147E00F504C0 /* AppDelegate.m in Sources */,
+				E6EC03B013A4148800F504C0 /* main.m in Sources */,
+				E6EC03BE13A41EC100F504C0 /* StatsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		E6E7116013A41224000D647C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E6E7116113A41224000D647C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		E6E7116913A41224000D647C /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E6E7116A13A41224000D647C /* en */,
-			);
-			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E6E7116F13A41224000D647C /* Debug */ = {
@@ -229,8 +224,8 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QuickStat/QuickStat-Prefix.pch";
-				INFOPLIST_FILE = "QuickStat/QuickStat-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/QuickStat-Prefix.pch";
+				INFOPLIST_FILE = "Supporting Files/QuickStat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -242,8 +237,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QuickStat/QuickStat-Prefix.pch";
-				INFOPLIST_FILE = "QuickStat/QuickStat-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/QuickStat-Prefix.pch";
+				INFOPLIST_FILE = "Supporting Files/QuickStat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -269,16 +264,17 @@
 				E6E7117313A41224000D647C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E6E7116C13A41224000D647C /* QuickStat.xcdatamodeld */ = {
+		E6EC03A613A4147E00F504C0 /* QuickStat.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E6E7116D13A41224000D647C /* QuickStat.xcdatamodel */,
+				E6EC03A713A4147E00F504C0 /* QuickStat.xcdatamodel */,
 			);
-			currentVersion = E6E7116D13A41224000D647C /* QuickStat.xcdatamodel */;
+			currentVersion = E6EC03A713A4147E00F504C0 /* QuickStat.xcdatamodel */;
 			path = QuickStat.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
