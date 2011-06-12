@@ -30,6 +30,7 @@
 {
     // push the add stat view controller
     AddStatViewController *addStat = [[AddStatViewController alloc] init];
+    addStat.managedObjectContext = managedObjectContext;
     [self.navigationController pushViewController:addStat animated:YES];
     [addStat release];
 }
