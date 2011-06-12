@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E627E71113A450C000E70462 /* StatTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = E627E71013A450C000E70462 /* StatTextField.m */; };
 		E6E7115613A41224000D647C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E7115513A41224000D647C /* UIKit.framework */; };
 		E6E7115813A41224000D647C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E7115713A41224000D647C /* Foundation.framework */; };
 		E6E7115A13A41224000D647C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6E7115913A41224000D647C /* CoreGraphics.framework */; };
@@ -15,9 +16,12 @@
 		E6EC03AB13A4147E00F504C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EC03A913A4147E00F504C0 /* AppDelegate.m */; };
 		E6EC03B013A4148800F504C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EC03AD13A4148800F504C0 /* main.m */; };
 		E6EC03BE13A41EC100F504C0 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EC03BD13A41EC100F504C0 /* StatsViewController.m */; };
+		E6EC03C213A43C9600F504C0 /* AddStatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EC03C113A43C9600F504C0 /* AddStatViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E627E70F13A450C000E70462 /* StatTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatTextField.h; sourceTree = "<group>"; };
+		E627E71013A450C000E70462 /* StatTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatTextField.m; sourceTree = "<group>"; };
 		E6E7115113A41224000D647C /* QuickStat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickStat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6E7115513A41224000D647C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E6E7115713A41224000D647C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -31,6 +35,8 @@
 		E6EC03AF13A4148800F504C0 /* QuickStat-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QuickStat-Prefix.pch"; sourceTree = "<group>"; };
 		E6EC03BC13A41EC100F504C0 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
 		E6EC03BD13A41EC100F504C0 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
+		E6EC03C013A43C9600F504C0 /* AddStatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddStatViewController.h; sourceTree = "<group>"; };
+		E6EC03C113A43C9600F504C0 /* AddStatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddStatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +86,11 @@
 		E6EC03A413A4147E00F504C0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E6EC03A513A4147E00F504C0 /* Models */,
+				E6EC03C313A449B900F504C0 /* Views */,
+				E6EC03BB13A41EC100F504C0 /* Controllers */,
 				E6EC03A813A4147E00F504C0 /* AppDelegate.h */,
 				E6EC03A913A4147E00F504C0 /* AppDelegate.m */,
-				E6EC03BB13A41EC100F504C0 /* Controllers */,
-				E6EC03A513A4147E00F504C0 /* Models */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -111,8 +118,19 @@
 			children = (
 				E6EC03BC13A41EC100F504C0 /* StatsViewController.h */,
 				E6EC03BD13A41EC100F504C0 /* StatsViewController.m */,
+				E6EC03C013A43C9600F504C0 /* AddStatViewController.h */,
+				E6EC03C113A43C9600F504C0 /* AddStatViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E6EC03C313A449B900F504C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E627E70F13A450C000E70462 /* StatTextField.h */,
+				E627E71013A450C000E70462 /* StatTextField.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +159,7 @@
 		E6E7114813A41224000D647C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = Venmo;
+				ORGANIZATIONNAME = "Shreyans Bhansali";
 			};
 			buildConfigurationList = E6E7114B13A41224000D647C /* Build configuration list for PBXProject "QuickStat" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -179,6 +197,8 @@
 				E6EC03AB13A4147E00F504C0 /* AppDelegate.m in Sources */,
 				E6EC03B013A4148800F504C0 /* main.m in Sources */,
 				E6EC03BE13A41EC100F504C0 /* StatsViewController.m in Sources */,
+				E6EC03C213A43C9600F504C0 /* AddStatViewController.m in Sources */,
+				E627E71113A450C000E70462 /* StatTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
