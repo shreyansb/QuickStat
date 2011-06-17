@@ -1,14 +1,6 @@
-//
-//  Stat.m
-//  QuickStat
-//
-//  Created by Shreyans Bhansali on 6/11/11.
-//  Copyright (c) 2011 Shreyans Bhansali. All rights reserved.
-//
-
 #import "Stat.h"
-#import "Category.h"
-
+#import "Value.h"
+#import "NSManagedObject+QuickStat.h"
 
 @implementation Stat
 @dynamic name;
@@ -16,7 +8,64 @@
 @dynamic values;
 
 
-- (void)addValuesObject:(NSManagedObject *)value {    
++ (Stat *)findStatWithName:(NSString *)name 
+                  category:(NSString *)category
+    inManagedObjectContext:(NSManagedObjectContext *)context {
+
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"name == %@ AND category == %@", name, category];
+    return (Stat *)[NSManagedObject firstWithPredicate:predicate 
+                        inManagedObjectContext:context];
+}
+
++ (Stat *)addStatWithName:(NSString *)name 
+                 category:(NSString *)category
+                    value:(NSString *)value 
+   inManagedObjectContext:(NSManagedObjectContext *)context {
+    NSDate *now = [[NSDate alloc] init];
+    
+    Stat *stat = [self findStatWithName:name 
+                               category:category 
+                 inManagedObjectContext:context];
+    
+    if (!stat) {
+        stat = (Stat *)[Stat 
+                        insertInToManagedObjectContext:context];
+        stat.name = name;
+        stat.category = category;
+    } 
+    
+    // create a new value
+    Value *newValue = (Value *)[Value 
+                                insertInToManagedObjectContext:context];
+    newValue.value = value;
+    newValue.createdDate = now;
+    newValue.stat = stat;
+    
+    [stat addValuesObject:newValue];
+    
+    [now release];    
+    
+    // try to save the context, and show an alert if the save fails
+    NSError *error;
+    if (![context save:&error])
+    {
+        NSString *errorString = [[NSString alloc] 
+                                 initWithFormat:@"%@, %@", error, error.userInfo];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save Error" 
+                                                        message:errorString 
+                                                       delegate:nil 
+                                              cancelButtonTitle:@"OK" 
+                                              otherButtonTitles:nil];
+        [errorString release];
+        [alert show];
+        [alert release];
+    } 
+    
+    return stat;
+}
+
+- (void)addValuesObject:(Value *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"values" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"values"] addObject:value];
@@ -24,7 +73,7 @@
     [changedObjects release];
 }
 
-- (void)removeValuesObject:(NSManagedObject *)value {
+- (void)removeValuesObject:(Value *)value {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"values" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"values"] removeObject:value];

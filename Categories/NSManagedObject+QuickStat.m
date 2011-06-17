@@ -15,6 +15,26 @@
                                          inManagedObjectContext:context];
 }
 
++ (NSManagedObject *)firstWithPredicate:(NSPredicate *)predicate 
+                 inManagedObjectContext:(NSManagedObjectContext *)context {
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	[fetchRequest setEntity:[NSEntityDescription entityForName:@"Stat"
+                                        inManagedObjectContext:context]];
+    [fetchRequest setFetchLimit:1];
+	[fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+	NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+	[fetchRequest release];
+	if (fetchedObjects == nil) {
+		NSLog(@"Fetch sender error %@, %@", error, [error userInfo]);
+		return nil;
+	} else if ([fetchedObjects count] > 0) {
+		return [fetchedObjects objectAtIndex:0];
+	}
+	return nil;
+}
+
 + (NSManagedObject *)firstInManagedObjectContext:(NSManagedObjectContext *)context {
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	[fetchRequest setEntity:[self entityInManagedObjectContext:context]];

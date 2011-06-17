@@ -1,7 +1,6 @@
 #import "AddStatViewController.h"
 #import "StatTextField.h"
 #import "NSManagedObject+QuickStat.h"
-#import "Category.h"
 #import "Stat.h"
 #import "Value.h"
 
@@ -61,8 +60,10 @@
     // autoreleased
     UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     saveButton.frame = CGRectMake(self.view.center.x-100.0f, 160.0f, 200.0f, 30.0f);
-    [saveButton setTitle:NSLocalizedString(@"Save", nil) forState:UIControlStateNormal];
-    [saveButton addTarget:self action:@selector(saveStat) forControlEvents:UIControlEventTouchUpInside];
+    [saveButton setTitle:NSLocalizedString(@"Save", nil) 
+                forState:UIControlStateNormal];
+    [saveButton addTarget:self action:@selector(saveStat) 
+         forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:saveButton];
 }
 
@@ -70,44 +71,20 @@
 
 - (void)saveStat
 {
-    NSDate *now = [[NSDate alloc] init];
+    Stat *stat = [Stat addStatWithName:statName.text 
+                              category:categoryName.text 
+                                 value:statValue.text 
+                inManagedObjectContext:managedObjectContext];
     
-    // get the category object by name
-    Category *category = (Category *)[Category findByAttribute:@"name" value:(id)categoryName.text
-              inManagedObjectContext:managedObjectContext];
-    // if it doesn't exist, create the category with this name
-    if (!category) {
-        category = (Category *)[Category insertInToManagedObjectContext:managedObjectContext];
-        category.name = categoryName.text;
-        category.createdDate = now;
-    }
-    // get the stat object by name
-    Stat *stat = (Stat *)[Stat findByAttribute:@"name" value:(id)statName.text
-       inManagedObjectContext:managedObjectContext];
-    // if it doesn't exist, create the stat with this name, and connect to category
-    if (!stat) {
-        stat = (Stat *)[Stat insertInToManagedObjectContext:managedObjectContext];
-        stat.name = statName.text;
-        stat.category = category;
-    }
-    // create a new value and connect it to the stat
-    Value *value = (Value *)[Value insertInToManagedObjectContext:managedObjectContext];
-    value.value = statValue.text;
-    value.createdDate = now;
-    value.stat = stat;
+    [self.navigationController popViewControllerAnimated:YES];
     
-    [now release];
-
-    NSLog(@"Category: %@", category);
+    stat.name;
     NSLog(@"Stat: %@", stat);
-    NSLog(@"Value: %@", value);
     
-    NSError *error;
-    if (![managedObjectContext save:&error])
-    {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-    } 
-
+    NSLog(@"Stat name: %@", stat.name);
+    NSLog(@"Stat category: %@", stat.category);
+    NSLog(@"Stat value any: %@", [stat.values anyObject]);
+    NSLog(@"Stat value all: %@", [stat.values allObjects]);
 }
 
 @end
