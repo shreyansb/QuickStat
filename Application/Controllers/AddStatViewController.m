@@ -6,8 +6,8 @@
 
 @implementation AddStatViewController
 
-@synthesize categoryName;
-@synthesize statName;
+@synthesize categoryInput;
+@synthesize statInput;
 @synthesize statValue;
 
 @synthesize category;
@@ -18,8 +18,8 @@
 
 - (void)dealloc
 {
-    [categoryName release];
-    [statName release];
+    [categoryInput release];
+    [statInput release];
     [statValue release];
     
     [managedObjectContext release];
@@ -31,8 +31,8 @@
 - (void)viewDidUnload
 {
     // Release any retained subviews of the main view.
-    self.categoryName = nil;
-    self.statName = nil;
+    self.categoryInput = nil;
+    self.statInput = nil;
     self.statValue = nil;
     [super viewDidUnload];
 }
@@ -44,17 +44,17 @@
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    categoryName = [[StatTextField alloc] initWithFrame:
+    categoryInput = [[StatTextField alloc] initWithFrame:
                     CGRectMake(self.view.center.x-100.0f, 10.0f, 200.0f, 30.0f)
                                             placeholder:@"Category"];
-    categoryName.text = category;
-    [self.view addSubview:categoryName];
+    categoryInput.text = category;
+    [self.view addSubview:categoryInput];
     
-    statName = [[StatTextField alloc] initWithFrame:
+    statInput = [[StatTextField alloc] initWithFrame:
                     CGRectMake(self.view.center.x-100.0f, 60.0f, 200.0f, 30.0f)
                                             placeholder:@"Stat name"];
-    statName.text = name;
-    [self.view addSubview:statName];
+    statInput.text = name;
+    [self.view addSubview:statInput];
     
     statValue = [[StatTextField alloc] initWithFrame:
                     CGRectMake(self.view.center.x-100.0f, 110.0f, 200.0f, 30.0f)
@@ -64,7 +64,7 @@
     if (category && name) {
         [statValue becomeFirstResponder];
     } else {
-        [categoryName becomeFirstResponder];
+        [categoryInput becomeFirstResponder];
     }
     
     // autoreleased
@@ -81,8 +81,8 @@
 
 - (void)saveStat
 {
-    Stat *stat = [Stat addStatWithName:statName.text 
-                              category:categoryName.text 
+    Stat *stat = [Stat addStatWithName:statInput.text 
+                              category:categoryInput.text 
                                  value:statValue.text 
                 inManagedObjectContext:managedObjectContext];
     

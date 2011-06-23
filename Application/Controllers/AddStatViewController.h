@@ -4,8 +4,8 @@
     
 }
 
-@property (nonatomic, retain) StatTextField *categoryName;
-@property (nonatomic, retain) StatTextField *statName;
+@property (nonatomic, retain) StatTextField *categoryInput;
+@property (nonatomic, retain) StatTextField *statInput;
 @property (nonatomic, retain) StatTextField *statValue;
 
 @property (nonatomic, copy) NSString *category;
