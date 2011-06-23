@@ -6,6 +6,8 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * category;
 @property (nonatomic, retain) NSSet* values;
+@property (nonatomic, retain) NSDate* updatedDate;
+@property (nonatomic, retain) NSString* latestValue;
 
 + (Stat *)findStatWithName:(NSString *)name 
                   category:(NSString *)category

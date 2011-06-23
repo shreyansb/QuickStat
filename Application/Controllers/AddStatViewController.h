@@ -1,12 +1,12 @@
 @class StatTextField;
 
-@interface AddStatViewController : UIViewController {
+@interface AddStatViewController : UIViewController <UITextFieldDelegate> {
     
 }
 
 @property (nonatomic, retain) StatTextField *categoryInput;
-@property (nonatomic, retain) StatTextField *statInput;
-@property (nonatomic, retain) StatTextField *statValue;
+@property (nonatomic, retain) StatTextField *nameInput;
+@property (nonatomic, retain) StatTextField *valueInput;
 
 @property (nonatomic, copy) NSString *category;
 @property (nonatomic, copy) NSString *name;

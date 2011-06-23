@@ -6,6 +6,8 @@
 @dynamic name;
 @dynamic category;
 @dynamic values;
+@dynamic updatedDate;
+@dynamic latestValue;
 
 
 + (Stat *)findStatWithName:(NSString *)name 
@@ -43,7 +45,8 @@
     newValue.stat = stat;
     
     [stat addValuesObject:newValue];
-    
+    stat.updatedDate = now;
+    stat.latestValue = value;
     [now release];    
     
     // try to save the context, and show an alert if the save fails

@@ -2,6 +2,8 @@
 #import "AddStatViewController.h"
 #import "Stat.h"
 
+static NSDateFormatter *dateFormatter = nil;
+
 @implementation StatsViewController
 
 @synthesize fetchedResultsController;
@@ -11,6 +13,8 @@
 
 - (void)dealloc
 {
+    [dateFormatter release]; dateFormatter = nil;
+
 	[fetchedResultsController release];
     [managedObjectContext release];
     [super dealloc];
@@ -20,12 +24,23 @@
 
 - (void)viewDidUnload
 {
-	[super viewDidUnload];	
+	[super viewDidUnload];
+    [dateFormatter release]; dateFormatter = nil;
 	self.fetchedResultsController = nil;	
 }
 
 - (void)viewDidLoad
 {
+    // Set up date formatter.
+    dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle]; // Jan 1, 2010
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];  // 1:43 PM
+    // TODO: Get locale from iPhone system prefs.
+    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [dateFormatter setLocale:usLocale];
+    [usLocale release];
+
+    // Add plus button to upper right.
     UIBarButtonItem *button = [[UIBarButtonItem alloc] 
                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
                                target:self action:@selector(addStat)];
@@ -65,8 +80,7 @@
 	fetchRequest.entity = entity;
     
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"name"
-//                                        initWithKey:@"values.@max.createdDate"
+                                        initWithKey:@"updatedDate"
                                         ascending:NO];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[sortDescriptor release];
@@ -96,7 +110,12 @@
                               stat.category, stat.name];
     cell.textLabel.text = categoryStat;
     [categoryStat release];
-//    cell.detailTextLabel.text = @"whatever";
+
+    NSString *statDetail = [[NSString alloc] initWithFormat:@"Last updated: %@ at %@",
+                            stat.latestValue, 
+                            [dateFormatter stringFromDate:stat.updatedDate]];
+    cell.detailTextLabel.text = statDetail;
+    [statDetail release];
 }
 
 #pragma mark UITableViewDataSource
@@ -112,7 +131,7 @@
     UITableViewCell *cell =
     (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                        reuseIdentifier:CellIdentifier] autorelease];
 	}
 	[self configureCell:cell atIndexPath:indexPath];
