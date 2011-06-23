@@ -39,11 +39,18 @@
 
 - (void)addStat
 {
+    [self addStatWithCategory:nil name:nil];
+}
+
+- (void)addStatWithCategory:(NSString *)category name:(NSString *)name
+{
     // push the add stat view controller
     AddStatViewController *addStat = [[AddStatViewController alloc] init];
     addStat.managedObjectContext = managedObjectContext;
+    addStat.category = category;
+    addStat.name = name;
     [self.navigationController pushViewController:addStat animated:YES];
-    [addStat release];
+    [addStat release];    
 }
 
 - (void)fetchStats {
@@ -121,6 +128,11 @@
 //	[photoViewController release];
 //}
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Stat *stat = [fetchedResultsController objectAtIndexPath:indexPath];
+    [self addStatWithCategory:stat.category name:stat.name];
+}
 
 #pragma mark - NSFetchedResultsControllerDelegate
 

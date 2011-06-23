@@ -10,6 +10,9 @@
 @synthesize statName;
 @synthesize statValue;
 
+@synthesize category;
+@synthesize name;
+
 @synthesize managedObjectContext;
 
 
@@ -44,18 +47,25 @@
     categoryName = [[StatTextField alloc] initWithFrame:
                     CGRectMake(self.view.center.x-100.0f, 10.0f, 200.0f, 30.0f)
                                             placeholder:@"Category"];
-    [categoryName becomeFirstResponder];
+    categoryName.text = category;
     [self.view addSubview:categoryName];
     
     statName = [[StatTextField alloc] initWithFrame:
                     CGRectMake(self.view.center.x-100.0f, 60.0f, 200.0f, 30.0f)
                                             placeholder:@"Stat name"];
+    statName.text = name;
     [self.view addSubview:statName];
     
     statValue = [[StatTextField alloc] initWithFrame:
                     CGRectMake(self.view.center.x-100.0f, 110.0f, 200.0f, 30.0f)
                                             placeholder:@"Value"];
     [self.view addSubview:statValue];
+    
+    if (category && name) {
+        [statValue becomeFirstResponder];
+    } else {
+        [categoryName becomeFirstResponder];
+    }
     
     // autoreleased
     UIButton *saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
